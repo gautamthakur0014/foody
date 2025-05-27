@@ -13,7 +13,7 @@ const useStatus =()=>{
         
     },[]);
 
-console.log(stat);
+// console.log(stat);
 
     return stat;
 };
