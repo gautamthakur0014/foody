@@ -16,71 +16,81 @@ const Body = () => {
 
   const fetchData = async () => {
     const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.8415062&lng=77.58187&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await response.json();
+    // console.log(json);
+
     const crd = json.data.cards;
-    console.log(crd);
+    // console.log(crd);
     const [valid, other] = crd.filter(
       (c) => c?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    console.log(valid);
-    console.log(other);
+    // console.log(valid);
+    // console.log(other);
 
     const restaurants =
       valid?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    console.log(restaurants);
-    setlist(restaurants); // Ensure it's an array
+    // console.log(restaurants);
+    setlist(restaurants);
     setfilteredData(restaurants);
   };
 
   const stat = useStatus();
-  console.log(stat);
+  // console.log(stat);
 
   if (!stat) {
     return <h1>YOU ARE OFFLINE</h1>;
   } else {
     return (
-      <div className="body">
-        <div className="search">
-          <input
-            type="text"
-            className="search-box"
-            value={searchText}
-            onChange={(e) => {
-              setsearchText(e.target.value);
-            }}
-          />
-          <button
-            onClick={() => {
-              const searched = list.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setfilteredData(searched);
-            }}
-          >
-            Search
-          </button>
+      <div className="">
+        <div className="flex justify-center">
+          <div>
+            <input
+              type="text"
+              className="border border-black p-1 focus:border-blue-500  rounded transition duration-200 m-2 mt-6"
+              value={searchText}
+              onChange={(e) => {
+                setsearchText(e.target.value);
+              }}
+            />
+            <button
+              className="bg-sky-300 hover:bg-blue-500 px-4 py-1 mr-4 rounded"
+              onClick={() => {
+                const searched = list.filter((res) =>
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                );
+                setfilteredData(searched);
+              }}
+            >
+              Search
+            </button>
 
-          <button className="reset" onClick={() => setfilteredData(list)}>
-            reset
-          </button>
+            <button
+              className="px-4 py-1 bg-sky-300 hover:bg-blue-500 rounded mr-4"
+              onClick={() => setfilteredData(list)}
+            >
+              Reset
+            </button>
+
+            <button
+              className="px-4 py-1 bg-sky-300 rounded hover:bg-blue-500"
+              onClick={() => {
+                const filteredlist = list.filter(
+                  (res) => res.info.avgRating > 4
+                );
+                setfilteredData(filteredlist);
+              }}
+            >
+              Filter by Rating
+            </button>
+          </div>
         </div>
-        <div className="filter">
-          <button
-            className="filter_btn"
-            onClick={() => {
-              const filteredlist = list.filter((res) => res.info.avgRating > 4);
-              setfilteredData(filteredlist);
-            }}
-          >
-            Filter by Rating
-          </button>
-        </div>
+
         {list.length === 0 ? (
           <Shimmer />
         ) : (
-          <div className="res_container">
+          <div className="ml-8 mt-4 flex flex-wrap justify-start gap-x-9 gap-y-7">
             {filteredData.map((restaurant) => (
               <Link
                 className="no-decoration"
