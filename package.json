@@ -1,7 +1,7 @@
 {
   "name": "food_ordering",
   "version": "1.0.0",
-  "main": "app.js",
+  
   "scripts": {
     "test": "run",
     "start": "parcel index.html",
