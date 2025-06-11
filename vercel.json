@@ -5,5 +5,6 @@
       "src": "/api/swiggy-data",
       "dest": "/api/swiggy-data.js"
     }
-  ]
+  ],
+  "devCommand": "npm run dev"
 }
