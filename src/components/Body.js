@@ -15,9 +15,9 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch("/api/swiggyData");
+    const response = await fetch("/api/swiggy-data");
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
 
     const crd = json.data.cards;
     // console.log(crd);
