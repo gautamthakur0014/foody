@@ -16,7 +16,7 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
-  console.log(items);
+  // console.log(items);
 
   return (
     <div className="md:w-5/12 md:ml-[8%]">
