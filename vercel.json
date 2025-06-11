@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/swiggy-data",
+      "dest": "/api/swiggy-data.js"
+    }
+  ]
+}
