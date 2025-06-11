@@ -4,6 +4,10 @@
     {
       "src": "/api/swiggy-data",
       "dest": "/api/swiggy-data.js"
+    },
+    {
+      "src": "/api/swiggy-menu",
+      "dest": "/api/swiggy-menu.js"
     }
   ],
   "devCommand": "npm run dev"
