@@ -42,53 +42,49 @@ const Body = () => {
   } else {
     return (
       <div className="">
-        <div className="flex justify-center">
-          <div>
-            <input
-              type="text"
-              className="border border-black p-1 focus:border-blue-500  rounded transition duration-200 m-2 mt-6"
-              value={searchText}
-              onChange={(e) => {
-                setsearchText(e.target.value);
-              }}
-            />
-            <button
-              className="bg-sky-300 hover:bg-blue-500 px-4 py-1 mr-4 rounded"
-              onClick={() => {
-                const searched = list.filter((res) =>
-                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
-                );
-                setfilteredData(searched);
-              }}
-            >
-              Search
-            </button>
+        <div className="flex justify-center flex-wrap gap-2 mt-6">
+          <input
+            type="text"
+            className="border border-black p-1 focus:border-blue-500 rounded transition duration-200"
+            value={searchText}
+            onChange={(e) => {
+              setsearchText(e.target.value);
+            }}
+          />
+          <button
+            className="bg-sky-300 hover:bg-blue-500 px-4 py-1 rounded"
+            onClick={() => {
+              const searched = list.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setfilteredData(searched);
+            }}
+          >
+            Search
+          </button>
 
-            <button
-              className="px-4 py-1 bg-sky-300 hover:bg-blue-500 rounded mr-4"
-              onClick={() => setfilteredData(list)}
-            >
-              Reset
-            </button>
+          <button
+            className="px-4 py-1 bg-sky-300 hover:bg-blue-500 rounded"
+            onClick={() => setfilteredData(list)}
+          >
+            Reset
+          </button>
 
-            <button
-              className="px-4 py-1 bg-sky-300 rounded hover:bg-blue-500"
-              onClick={() => {
-                const filteredlist = list.filter(
-                  (res) => res.info.avgRating > 4
-                );
-                setfilteredData(filteredlist);
-              }}
-            >
-              Filter by Rating
-            </button>
-          </div>
+          <button
+            className="px-4 py-1 bg-sky-300 hover:bg-blue-500 rounded"
+            onClick={() => {
+              const filteredlist = list.filter((res) => res.info.avgRating > 4);
+              setfilteredData(filteredlist);
+            }}
+          >
+            Filter by Rating
+          </button>
         </div>
 
         {list.length === 0 ? (
           <Shimmer />
         ) : (
-          <div className="ml-8 mt-4 flex flex-wrap justify-start gap-x-9 gap-y-7">
+          <div className="md:ml-8 mt-4 flex flex-wrap justify-center md:justify-start gap-x-9 gap-y-7">
             {filteredData.map((restaurant) => (
               <Link
                 className="no-decoration"
