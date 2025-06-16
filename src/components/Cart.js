@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { URL1 } from "../utils/constants";
 import { clearCart, removeItem } from "../utils/cartSlice";
 
-
 const Cart = () => {
   const items = useSelector((store) => store.cart);
   const dispatch = useDispatch();
@@ -21,14 +20,14 @@ const Cart = () => {
   return (
     <div className="md:w-5/12 md:ml-[8%]">
       {items.length === 0 ? (
-        <div className="absolute top-[50%] left-[40%] font-semibold text-4xl">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2bg-red-300 h-16 w-[20rem] p-2 md:absolute md:top-[50%] md:left-[40%] font-semibold text-4xl">
           Your Cart is Empty
         </div>
       ) : (
         <>
-          <h1 className="text-4xl mb-8 mt-4">CART :</h1>
+          <h1 className="text-4xl mb-8 mt-4 mx-4">CART :</h1>
           {items.map((item) => (
-            <div key={item.id} className="flex bg-sky-100 mb-4">
+            <div key={item.id} className="flex bg-sky-100 m-4">
               <div className="h-20 w-20 m-2">
                 <img
                   src={`${URL1}${item.imageId}`}
