@@ -1,67 +1,84 @@
-.con-body{
-    height: 100dvh;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    /* align-items: stretch; */
-    flex-wrap: wrap;
+.con-body {
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  /* align-items: stretch; */
+  flex-wrap: wrap;
 }
 .conatiner {
-    margin-top: 10px;
-        background-color: #e7e5e5;
-        height: 330px;
-        width: 220px;
-        border-radius: 5px;
-        box-sizing: border-box;
-        padding: 5px;
-        position: relative;
-        border: 1px solid black;
-      }
-      .pic {
-        background-color: #fff;
-        height: 150px;
-        width: 100%;
-        border-radius: inherit;
-      }
-      /* .text {
+  margin-top: 10px;
+  background-color: #e7e5e5;
+  height: 330px;
+  width: 220px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+  position: relative;
+  border: 1px solid black;
+}
+.pic {
+  background-color: #fff;
+  height: 150px;
+  width: 100%;
+  border-radius: inherit;
+}
+/* .text {
         margin-left: 5%;
       } */
-      .text1 {
-        background-color: #fff;
-        height: 30px;
-        width: 80%;
-        margin-top: 15px;
-        border-radius: 5px;
-      }
-      .text2 {
-        background-color: #fff;
-        height: 25px;
-        margin-top: 10px;
-        width: 90%;
-        border-radius: 5px;
-      }
-      .shimmer {
-        /* class on which ::bef is going to applid must have these two same prop*/
-        position: relative;
-        overflow: hidden;
-      }
-      .shimmer::before {
-        /*::bef must have post:abs and content prop*/
-        /* background-color: #65dee9; */
-          background: linear-gradient(90deg, transparent, rgb(238, 235, 235), transparent);
+.text1 {
+  background-color: #fff;
+  height: 30px;
+  width: 80%;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+.text2 {
+  background-color: #fff;
+  height: 25px;
+  margin-top: 10px;
+  width: 90%;
+  border-radius: 5px;
+}
+.shimmer {
+  /* class on which ::bef is going to applid must have these two same prop*/
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::before {
+  /*::bef must have post:abs and content prop*/
+  /* background-color: #65dee9; */
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(238, 235, 235),
+    transparent
+  );
 
-        height: 100%;
-        width: 100%;
-        content: "";
-        position: absolute;
-        left: -100%;
-        animation: slide 1s ease-in-out infinite;
-      }
-      @keyframes slide {
-        from{
-            transform: translateX(-100%);
-        }
-        to{
-            transform: translateX(200%);
-        }
-      }
+  height: 100%;
+  width: 100%;
+  content: "";
+  position: absolute;
+  left: -100%;
+  animation: slide 1s ease-in-out infinite;
+}
+@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(200%);
+  }
+}
+
+@media (max-width: 500px) {
+  .conatiner {
+    height: 30rem;
+    width: 18rem;
+  }
+  .pic{
+    height: 15rem;
+    width: 17rem;
+    margin: 2;
+  }
+}
