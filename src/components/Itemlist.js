@@ -14,20 +14,20 @@ const Itemlist = ({ items }) => {
       {items.map((list) => (
         <div
           key={list.card.info.id}
-          className="bg-sky-100 m-2 p-2 flex text-left "
+          className="bg-sky-100 mx-2 my-4 p-2 md:flex text-left "
         >
           {/* <div> */}
-          <div className=" w-32 h-32 relative z-0 mr-2 ">
+          <div className="h-[15rem] w-[18rem] md:w-32 md:h-32 relative z-0 mr-2 inline md:block bg-red-300">
             <img
               src={`${URL1}${list.card.info.imageId}`}
               alt={list.card.info.name}
               className="h-[100%] w-100%] object-cover z-10"
             />
             <button
-              className="z-20 absolute top-1 left-1 bg-black bg-opacity-50 text-white p-1 text-sm"
+              className=" z-20 absolute top-1 left-1 bg-black bg-opacity-50 text-white p-2 text-sm"
               onClick={() => handleClick(list.card.info)}
             >
-              Add +
+              Add+
             </button>
           </div>
 
@@ -40,8 +40,13 @@ const Itemlist = ({ items }) => {
                 ? list.card.info.defaultPrice / 100
                 : list.card.info.price / 100}
             </span>
-            <p className="text-wrap text-m">{list.card.info.description}</p>
+            <p className="text-wrap hidden md:block text-m">
+              {list.card.info.description}
+            </p>
           </div>
+          <p className="text-wrap text-s md:hidden">
+            {list.card.info.description}
+          </p>
           {/* </div> */}
         </div>
       ))}
@@ -50,8 +55,6 @@ const Itemlist = ({ items }) => {
 };
 
 export default Itemlist;
-
-
 
 /*
 
